@@ -48,6 +48,13 @@ pipeline {
             writeCapabilities(capabilities, 'capabilities.json')
             sh "tox -e py36"
           }
+          post {
+            always {
+              stash includes: 'results/py36.html', name: 'py36'
+              archiveArtifacts 'results/*'
+              junit 'results/*.xml'
+            }
+          }
         }
         stage('py27') {
           agent {
@@ -57,11 +64,29 @@ pipeline {
             writeCapabilities(capabilities, 'capabilities.json')
             sh "tox -e py27"
           }
+          post {
+            always {
+              stash includes: 'results/py27.html', name: 'py27'
+              archiveArtifacts 'results/*'
+              junit 'results/*.xml'
+            }
+          }
         }
       }
     }
   }
   post {
+    always {
+      unstash 'py36'
+      unstash 'py27'
+      publishHTML(target: [
+        allowMissing: false,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: 'results',
+        reportFiles: "py36.html, py27.html",
+        reportName: 'HTML Report'])
+    }
     changed {
       ircNotification()
     }
