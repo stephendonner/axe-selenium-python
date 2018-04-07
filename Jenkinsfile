@@ -50,7 +50,7 @@ pipeline {
           }
           post {
             always {
-              stash includes: 'results/results.json', name: 'py36'
+              stash includes: 'results/py36.html', name: 'py36'
               archiveArtifacts 'results/*'
               junit 'results/*.xml'
             }
@@ -66,7 +66,7 @@ pipeline {
           }
           post {
             always {
-              stash includes: 'results/results.json', name: 'py27'
+              stash includes: 'results/py27.html', name: 'py27'
               archiveArtifacts 'results/*'
               junit 'results/*.xml'
             }
