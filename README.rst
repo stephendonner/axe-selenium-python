@@ -1,5 +1,5 @@
 axe-selenium-python
-====================
+===================
 
 axe-selenium-python integrates aXe and selenium to enable automated web accessibility testing.
 
@@ -43,7 +43,7 @@ To install axe-selenium-python:
 
 
 Usage
-------
+-----
 
 .. code-block:: python
 
@@ -88,7 +88,6 @@ Resources
 - `pytest-axe <http://github.com/mozilla-services/pytest-axe/>`_
 
 CHANGELOG
-^^^^^^^^^^^^^^
 
 version 2.1.0
 **************
@@ -132,7 +131,6 @@ version 0.0.3
 - Added run method to Axe class to simplify the usage in existing test suites
 - run method includes the ability to set what impact level to test for: 'minor', 'moderate', 'severe', 'critical'
 
-<<<<<<< HEAD
 version 0.0.276
 ****************
 - Added pytest-axe usage example to README
@@ -142,10 +140,10 @@ version 0.0.275
 - Added usage example to README
 
 version 0.0.273
-=======
-version 0.0.28
->>>>>>> ba24ec56528e4458f0a5604a8d511923c943a479
 ****************
+
+version 0.0.28
+***************
 - Added selenium instance as a class attribute
 - Changed file paths to OS independent structure
 - Fixed file read operations to use with keyword
